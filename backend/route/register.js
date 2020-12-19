@@ -1,5 +1,5 @@
 const express = require('express');
-const schema = require('../model/schema');
+const User = require('../model/schema');
 const router = express();
 
 
@@ -28,7 +28,7 @@ router.get('/', async(req,res) => {
 router.get('/submit', async(req,res) => {
     try {
         res.send("submitted");
-        const users = await schema.find();
+        const users = await User.find();
         res.json(users);
     }
     catch(err){
@@ -56,7 +56,7 @@ router.post('/submit', async (req,res) => {
 
     const email = usr.user.personal.email; // get email from json
     // const password = usr.user.personal.password // get password
-    const doesUserExist = await schema.exists({"user.personal.email": email}); // check if email already been used
+    const doesUserExist = await User.exists({"user.personal.email": email}); // check if email already been used
 
     if (doesUserExist){
         res.send("User already registered.");

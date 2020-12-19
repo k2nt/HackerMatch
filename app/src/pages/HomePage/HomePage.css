@@ -1,0 +1,47 @@
+.home-page {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	background-color: #242424;
+}
+
+.particle-js-container {
+	position: absolute;
+}
+
+.home-page-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.home-page-container > h1 {
+	font-size: 75px;
+	color: #fff;
+	margin-bottom: 1.6rem;
+	font-family: 'Georgia', Times, serif;
+}
+
+.home-page-container > p {
+	font-size: 23px;
+	color: #fff;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin-bottom: 2rem;
+}
+
+.button-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.button-container button {
+	margin: 1rem;
+	margin-top: 0px;
+}
+
