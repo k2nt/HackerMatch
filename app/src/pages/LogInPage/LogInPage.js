@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import './LogInPage.css';
 import InputField from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
+import auth from '../../services/auth';
 
-const LogInPage = () => {
+const LogInPage = (props) => {
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	const handleOnSubmit = e => {
-		alert("Submitted");
+
+		auth.login({
+			email: email,
+			password: password,
+			cb: () => { props.history.push("/users"); }
+		});
+
 		e.preventDefault();
 	}
 
@@ -20,12 +27,11 @@ const LogInPage = () => {
 	return (
 		<div className='log-in-page'>
 			<div className='side-image-container'>
-
 			</div>
 			<div className='log-in-panel-wrapper'>
 				<div className='log-in-panel-container'>
 					<h2>Log In</h2>
-					<form onSubmit={handleOnSubmit}>
+					<form onSubmit={handleOnSubmit} >
 						<InputField 
 							fieldTitle="Email"
 							type="email"
@@ -43,7 +49,7 @@ const LogInPage = () => {
 							onChangeValue={onChangePassword}
 							required={true}
 						/>
-						{/* <div className="btn-wrapper">
+						<div className="btn-wrapper">
 							<Button
 								btnStyle='btn--primary'
 								btnSize='btn--medium'
@@ -52,12 +58,7 @@ const LogInPage = () => {
 							>
 								Next
 							</Button>
-						</div> */}
-						<button
-							type="submit"
-						>
-							NEXT
-						</button>
+						</div>
 					</form>
 				</div>
 			</div>

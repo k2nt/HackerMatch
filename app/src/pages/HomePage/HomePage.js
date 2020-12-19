@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 import Button from '../../components/Button/Button';
-import { Switch } from 'react-router-dom';
+import { Switch, Link } from 'react-router-dom';
 import Particles from 'react-particles-js';
 import particlesConfig from '../../components/ParticleBackground/particlesConfig';
 import LogInPage from '../LogInPage/LogInPage';
@@ -25,22 +25,24 @@ const HomePage = () => {
 				<p>Find the next dream team for your Hackathon</p>
 				<Switch>
 					<div className="button-container">
-						<Button
-							btnStyle="btn--secondary"
-							btnSize="btn--large"
-							onClick={{}}
-							link='/login'
-						>
-							LOG IN
-						</Button>
-						<Button
-							btnStyle="btn--primary"
-							btnSize="btn--large"
-							onClick={{}}
-							link='/signup'
-						>
-							SIGN UP
-						</Button>
+						<Link to='/login'>
+							<Button
+								btnStyle="btn--secondary"
+								btnSize="btn--large"
+								onClick={{}}
+							>
+								LOG IN
+							</Button>
+						</Link>
+						<Link to='/signup'>
+							<Button
+								btnStyle="btn--primary"
+								btnSize="btn--large"
+								onClick={{}}
+							>
+								SIGN UP
+							</Button>
+						</Link>
 					</div>
 				</Switch>
 			</div>

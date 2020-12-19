@@ -2,15 +2,23 @@ import React, { useState } from 'react';
 import './SignUpPage.css';
 import InputField from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
+import auth from '../../services/auth';
 
-const SignUpPage = () => {
+const SignUpPage = (props) => {
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
-	const handleOnSubmit = () => {
-
+	const handleOnSubmit = e => {
+		
+		auth.login({
+			email: email,
+			password: password,
+			cb: () => { props.history.push("/users"); }
+		});
+		
+		e.preventDefault();
 	}
 
 	const onChangeEmail = (text) => setEmail(text.target.value);
