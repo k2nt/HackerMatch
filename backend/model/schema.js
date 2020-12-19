@@ -13,7 +13,7 @@ const userSchema = mongoose.Schema({
         type: {
 
             _id: { 
-                type: Schema.ObjectId, 
+                type: mongoose.Schema.Types.ObjectId, 
                 auto: true 
             },
 
