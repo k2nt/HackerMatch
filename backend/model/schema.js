@@ -11,6 +11,13 @@ const getHashedPassword = (password) => {
 const userSchema = mongoose.Schema({
     user: {
         type: {
+
+            id : {
+                type: String,
+                required: true,
+
+            },
+
             personal : {
                 type: {
                 
@@ -27,37 +34,37 @@ const userSchema = mongoose.Schema({
                         required : true,
                         unique: true
                     },
-                    
-                    password:{
-                        type: String,
-                        required : true
-                    },
-
+            
                     contact: String,
                     movie : String,
                 },
                 required: true,
             },
 
+            password:{
+                type: String,
+                required : true
+            },
+
             tags : {
                 type:
-                {
-                WebApp : Boolean,
-                STEM: Boolean,
-                Security: Boolean,
-                FinTech: Boolean,
-                AIML: Boolean,
-                Funniest:Boolean,
-                ARVR: Boolean,
-                Embedded : Boolean,
-                Mobile: Boolean,
-                },
+                    {
+                    WebApp : Boolean,
+                    STEM: Boolean,
+                    Security: Boolean,
+                    FinTech: Boolean,
+                    AIML: Boolean,
+                    Funniest:Boolean,
+                    ARVR: Boolean,
+                    Embedded : Boolean,
+                    Mobile: Boolean,
+                    },
 
-                require: function() {
-                    return this.webApp || this.STEM || this.Security || this.FinTech || this.AIML || 
-                    this.Funniest || this.ARVR || this.Embedded || this.Mobile;
-                },   
-            },
+                    require: function() {
+                        return this.webApp || this.STEM || this.Security || this.FinTech || this.AIML || 
+                        this.Funniest || this.ARVR || this.Embedded || this.Mobile;
+                    },   
+                },
             skill : {
                 type: Array,
                 max: 20,

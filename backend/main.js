@@ -9,12 +9,12 @@ const cookieParser = require('cookie-parser');
 
 require('dotenv/config');
 //Middleware
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // to parse response in json
 
 
 
-app.use('/signup', signUpRoute);
-app.use('/login', loginRoute);
+app.use('/signup', signUpRoute); // navigate to sign up page
+app.use('/login', loginRoute); // navigate to login page
 
 
 app.get('/', (req,res) => {
@@ -29,4 +29,4 @@ db.connect(
 );
 
 
-app.listen(3000);
+app.listen(9000); // listen to port 9000

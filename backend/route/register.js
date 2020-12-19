@@ -1,25 +1,29 @@
-
 const express = require('express');
 const schema = require('../model/schema');
 const router = express();
-// const User = require('../model/schema');
 
 
 
-
-
+/**
+ *  Render login page
+ */
 
 router.get('/', async(req,res) => {
     try {
-        res.send("in login");
-        const users = await schema.find();
-        res.json(users);
+        res.send("in login"); //send login json message
     }
     catch(err){
         res.json({message: err});
     }
     
 });
+
+
+/**
+ *  To test whether user has been added
+ *  Print out all object in current db
+ */
+
 
 router.get('/submit', async(req,res) => {
     try {
@@ -34,76 +38,37 @@ router.get('/submit', async(req,res) => {
 });
 
 
-
-
-// app.post('/register', (req, res) => {
-//     const { email, firstName, lastName, password, confirmPassword } = req.body;
-
-//     // Check if the password and confirm password fields match
-//     if (password === confirmPassword) {
-
-//         // Check if user with the same email is also registered
-//         if (users.find(user => user.email === email)) {
-
-//             res.render('register', {
-//                 message: 'User already registered.',
-//                 messageClass: 'alert-danger'
-//             });
-
-//             return;
-//         }
-
-//         const hashedPassword = getHashedPassword(password);
-
-//         // Store user into the database if you are using one
-//         users.push({
-//             firstName,
-//             lastName,
-//             email,
-//             password: hashedPassword
-//         });
-
-//         res.render('login', {
-//             message: 'Registration Complete. Please login to continue.',
-//             messageClass: 'alert-success'
-//         });
-//     } else {
-//         res.render('register', {
-//             message: 'Password does not match.',
-//             messageClass: 'alert-danger'
-//         });
-//     }
-// });
-
-
+/**
+ *  User sign up
+ *  POST
+ *  User submit sign in data (email, password), back end create new data in database
+ *  Return { success: true } on success, and { success: false, code: <HTTP status code>, errmsg <String> } otherwise
+ */
 
 
 router.post('/submit', async (req,res) => {
-    console.log(req.body);
+    // console.log(req.body);
     // res.send("submitted");
     
-    const usr = new User({
+    const usr = new User({   //create new user object from form
         user: req.body.user
     });
 
     const email = usr.user.personal.email; // get email from json
     // const password = usr.user.personal.password // get password
-    console.log(email);
     const doesUserExist = await schema.exists({"user.personal.email": email}); // check if email already been used
-    console.log(doesUserExist);
 
     if (doesUserExist){
         res.send("User already registered.");
-        return;
+        return;  // simply return and do nothing
     }
     else{  // not exist
         try {
-            console.log("got here");
-            const userSaved = await usr.save();
-            res.json(userSaved)
+            const userSaved = await usr.save(); //update to db
+            res.json(userSaved.password);
         }
         catch(err){
-            res.json({message: err});
+            res.json({ success: false, code: 500, errmsg: err.body }); //if error occur 
         }
      }
 });
