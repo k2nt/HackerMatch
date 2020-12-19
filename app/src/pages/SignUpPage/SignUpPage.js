@@ -10,9 +10,9 @@ const SignUpPage = (props) => {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
-	const handleOnSubmit = e => {
+	const handleOnSubmit = async (e) => {
 		
-		auth.login({
+		await auth.login({
 			email: email,
 			password: password,
 			cb: () => { props.history.push("/users"); }
