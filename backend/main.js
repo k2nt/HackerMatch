@@ -7,7 +7,6 @@ const loginRoute = require('./route/login');
 const cookieParser = require('cookie-parser');
 
 
-
 require('dotenv/config');
 //Middleware
 app.use(bodyParser.json());
