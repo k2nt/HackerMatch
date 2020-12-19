@@ -7,16 +7,6 @@ const loginRoute = require('./route/login');
 const cookieParser = require('cookie-parser');
 
 
-// co;
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-
-
-
 
 require('dotenv/config');
 //Middleware
