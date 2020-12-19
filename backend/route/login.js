@@ -14,7 +14,7 @@ const generateAuthToken = () => {
  * User submit sign in data (email, password), back end check if data is in repository
  * Return { success: true } on success, and { success: false, code: <HTTP status code>, errmsg <String> } otherwise
  */
-reqRouter.post('/submit-form', async (req, res) => {
+regRouter.post('/submit-form', async (req, res) => {
     const inputEmail = req.body.user.personal.email;
     const inputPassword = req.body.user.password;
 
