@@ -12,10 +12,9 @@ const userSchema = mongoose.Schema({
     user: {
         type: {
 
-            id : {
-                type: String,
-                required: true,
-
+            _id: { 
+                type: Schema.ObjectId, 
+                auto: true 
             },
 
             personal : {
