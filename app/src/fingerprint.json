@@ -7,12 +7,12 @@
     "name": "Khai Nguyen",
     "major": "Computer Science",
     "email": "khainguyen@umass.edu",
-    "other-contacts": "facebook\ninstagram\nsnapchat",
-    "fav-movie": "Avengers: End Game"
+    "otherContacts": "facebook\ninstagram\nsnapchat",
+    "favMovie": "Avengers: End Game"
   },
 
   "interests": {
-    "web-app": true,
+    "webApp": true,
     "stem": false,
     "security": true,
     "fintech": true,

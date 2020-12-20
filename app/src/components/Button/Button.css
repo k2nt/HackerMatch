@@ -25,6 +25,17 @@
 	color: var(--color--accent);
 }
 
+.btn--transparent {
+	background-color: transparent;
+	color: #000;
+}
+
+.btn--wrap {
+	width: fit-content;
+	height: fit-content;
+	font-size: 18px;
+}
+
 .btn--medium {
 	padding: 14px 45px;
 	font-size: 18px;
@@ -35,6 +46,7 @@
 	font-size: 20px;
 }
 
+.btn--wrap:hover,
 .btn--medium:hover,
 .btn--large:hover {
 	opacity: 80%;

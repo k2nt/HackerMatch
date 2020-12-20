@@ -19,10 +19,11 @@ const App = () => {
 				<Route path='/login' exact component={LogInPage} />
 				<Route path='/signup' exact component={SignUpPage} />
 				<Route path='/marketplace' exact component={MarketplacePage} />
-				<ProtectedRoute 
+				{/* <ProtectedRoute 
 					path='/users'
 					component={UserAccountPage}
-				/>
+				/> */}
+				<Route path='/users' component={UserAccountPage} />
 			</Switch>
 		</Router>
 	);

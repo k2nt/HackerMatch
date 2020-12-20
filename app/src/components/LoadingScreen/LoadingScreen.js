@@ -1,9 +1,14 @@
 import React from 'react';
+import './LoadingScreen.css';
+import { HashLoader } from 'react-spinners';
 
 const LoadingScreen = () => {
   return (
-    <div>
-      <h1>Loading Screen</h1>
+    <div className='loading-screen'>
+      <HashLoader 
+        color={"#fff"}
+        size={"50px"}
+      />
     </div>
   )
 }
