@@ -28,10 +28,14 @@
 	background-color: #fff;
 }
 
+.log-in-panel-container .input-field-container {
+	margin-bottom: 1.5rem;
+}
+
 .log-in-panel-container > h2 {
 	font-size: 45px;
 	font-family: Georgia, 'Times New Roman', Times, serif;
-	margin-bottom: 4rem;
+	margin-bottom: 5rem;
 }
 
 .log-in-panel-container > form {
@@ -42,4 +46,8 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
+}
+
+.log-in-panel-container input {
+	border-width: 0px 0px 1px 0px;
 }

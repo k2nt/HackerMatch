@@ -62,6 +62,7 @@
   width: 60%;  
   flex: 1;
   height: 7rem;
+  outline: none;
 }
 
 .user-account-container .interest-tags-field {
