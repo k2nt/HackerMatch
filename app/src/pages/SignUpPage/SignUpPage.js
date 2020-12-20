@@ -3,6 +3,7 @@ import './SignUpPage.css';
 import InputField from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
 import auth from '../../services/auth';
+import sideImg from '../../assets/images/signup-sideimg.png';
 
 const SignUpPage = (props) => {
 
@@ -30,7 +31,10 @@ const SignUpPage = (props) => {
 	return (
 		<div className='sign-up-page'>
 			<div className='side-image-container'>
-
+				<img
+					alt="signup-side-img"
+					src={sideImg}
+				/>
 			</div>
 			<div className='sign-up-panel-wrapper'>
 				<div className='sign-up-panel-container'>

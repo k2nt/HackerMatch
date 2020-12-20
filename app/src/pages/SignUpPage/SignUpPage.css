@@ -9,7 +9,13 @@
 	height: 100%;
 	width: 50%;
 	background-color: indianred;
-	object-fit: contain;
+}
+
+.side-image-container img {
+	height: 100%;
+	width: 100%;
+	background-color: indianred;
+	object-fit: cover;
 }
 
 .sign-up-panel-wrapper {
