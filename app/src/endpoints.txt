@@ -1,0 +1,40 @@
+1. /auth {
+  method: "get",
+  input: {
+    email,
+    password
+  }
+  output: {
+    JSON.stringify({ success: boolean });
+  }
+}
+
+2. /signup {
+  method: "post",
+  input: {
+    userData: schema
+  }
+  output: {
+    JSON.stringify({ success: boolean });
+  }
+}
+
+3. /getuser {
+  method: "get"
+  input: {
+    email
+  }
+  output {
+    JSON.stringify({ userData: schema });
+  }
+}
+
+4. /query {
+  method: "get"
+  input: {
+    queryString: string
+  }
+  output: {
+    JSON.stringify({ userList: schema[] /*array*/ });
+  }
+}

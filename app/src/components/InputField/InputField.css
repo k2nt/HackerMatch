@@ -1,0 +1,38 @@
+* {
+	border-width: 0px;
+}
+
+.input-field-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-field-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 100%;
+}
+
+.field-title {
+	font-size: 1.1rem;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+	margin-bottom: 0.2rem;
+}
+
+.input-field-container .icon {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.input-field-container .input-field {
+	padding: 8px 0px 8px 0px;
+	margin-right: 10px;
+	background-color: inherit;
+	outline: none;
+	font-size: 1.1rem;
+	width: 100%;
+	flex-grow: 1;
+	border-radius: inherit;
+}
