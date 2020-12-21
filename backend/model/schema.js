@@ -65,7 +65,7 @@ const userSchema = mongoose.Schema({
                     },   
                 },
             skill : {
-                type: Array,
+                type: [String],
                 max: 20,
             },
             pitch: String,

@@ -59,13 +59,13 @@ router.post('/submit', async (req,res) => {
     const doesUserExist = await User.exists({"user.personal.email": email}); // check if email already been used
 
     if (doesUserExist){
-        res.send("User already registered.");
-        return;  // simply return and do nothing
+        res.json({ success: false, error: 400, errmsg: "User already registered."});
+        // return;  // simply return and do nothing
     }
     else{  // not exist
         try {
             const userSaved = await usr.save(); //update to db
-            res.json(userSaved.password);
+            res.json({success : true}); //send msg
         }
         catch(err){
             res.json({ success: false, code: 500, errmsg: err.body }); //if error occur 
