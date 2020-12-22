@@ -4,6 +4,7 @@ const db = require('mongoose');
 const bodyParser = require('body-parser');
 const signUpRoute = require('./route/register');
 const loginRoute = require('./route/login');
+const searchRoute = require('./route/search');
 const cookieParser = require('cookie-parser');
 
 
@@ -15,7 +16,7 @@ app.use(bodyParser.json()); // to parse response in json
 
 app.use('/signup', signUpRoute); // navigate to sign up page
 app.use('/login', loginRoute); // navigate to login page
-
+app.use('/search', searchRoute);
 
 app.get('/', (req,res) => {
     res.send('We are on home');

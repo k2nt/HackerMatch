@@ -1,12 +1,11 @@
 const express = require('express');
 const queryRoute = express();
 const schema = require('../model/schema');
+const verify = require('./tokenVerify');
 
-
-queryRoute.get('/get', async (req,res)=> {
-    const queryEmail = req.body.email;
+queryRoute.get('/get', verify, async (req,res)=> {
     
-    var data = await schema.findOne({ "user.personal.email": queryEmail }); //retrieve user from database
+    let data = await schema.findOne({ "user.personal.email": req.body.email }); //retrieve user from database
 
     // console.log(data);
     if (data == null) {
@@ -18,9 +17,10 @@ queryRoute.get('/get', async (req,res)=> {
 
 
 
-queryRoute.get('/query', async (req,res) =>{
+// queryRoute.get('/query', async (req,res) =>{
     
 
 
 
-});
+// });
+module.exports = queryRoute;

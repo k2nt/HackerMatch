@@ -71,7 +71,7 @@ router.post('/submit', async(req,res) => {
 
     try {
         const userSaved = await usr.save(); //update to db
-        res.json({success : true, message : userSaved}); //send msg
+        res.json({success : true, user : user._id}); //send msg
     }
     catch(err){
         res.json({ success: false, code: 500, errmsg: err.body }); //if error occur 
