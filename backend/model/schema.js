@@ -9,68 +9,63 @@ const getHashedPassword = (password) => {
 
 
 const userSchema = mongoose.Schema({
-    user: {
-        type: {
+        _id: { 
+            type: mongoose.Schema.Types.ObjectId, 
+            auto: true 
+        },
 
-            _id: { 
-                type: mongoose.Schema.Types.ObjectId, 
-                auto: true 
-            },
-
-            personal : {
-                type: {
-                
-                    name : {
-                        type : String,
-                        required : true
-                    },
-                    major : {
-                        type : String,
-                        required : true
-                    },
-                    email : {
-                        type : String,
-                        required : true,
-                        unique: true
-                    },
+        personal : {
+            type: {
             
-                    contact: String,
-                    movie : String,
+                name : {
+                    type : String,
+                    required : true
                 },
-                required: true,
-            },
-
-            password:{
-                type: String,
-                required : true
-            },
-
-            tags : {
-                type:
-                    {
-                    WebApp : Boolean,
-                    STEM: Boolean,
-                    Security: Boolean,
-                    FinTech: Boolean,
-                    AIML: Boolean,
-                    Funniest:Boolean,
-                    ARVR: Boolean,
-                    Embedded : Boolean,
-                    Mobile: Boolean,
-                    },
-
-                    require: function() {
-                        return this.webApp || this.STEM || this.Security || this.FinTech || this.AIML || 
-                        this.Funniest || this.ARVR || this.Embedded || this.Mobile;
-                    },   
+                major : {
+                    type : String,
+                    required : true
                 },
-            skill : {
-                type: [String],
-                max: 20,
+                email : {
+                    type : String,
+                    required : true,
+                    unique: true
+                },
+        
+                contact: String,
+                movie : String,
             },
-            pitch: String,
-            }  
-        }
+            required: true,
+        },
+
+        password:{
+            type: String,
+            required : true
+        },
+
+        tags : {
+            type:
+                {
+                WebApp : Boolean,
+                STEM: Boolean,
+                Security: Boolean,
+                FinTech: Boolean,
+                AIML: Boolean,
+                Funniest:Boolean,
+                ARVR: Boolean,
+                Embedded : Boolean,
+                Mobile: Boolean,
+                },
+
+                require: function() {
+                    return this.webApp || this.STEM || this.Security || this.FinTech || this.AIML || 
+                    this.Funniest || this.ARVR || this.Embedded || this.Mobile;
+                },   
+            },
+        skill : {
+            type: [String],
+            max: 20,
+        },
+        pitch: String,
     });
            
     // userSchema.path('name').index({ unique: true });
