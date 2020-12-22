@@ -10,6 +10,11 @@ const generateAuthToken = () => {
 
 const joi = require('@hapi/joi');
 
+const valiSchema = {
+    // name : joi.string().min(6).required(),
+    email: joi.string().min(6).required().email(),
+    password : joi.string().min(6).required()
+};
 /**
  * User sign in
  * GET, POST
@@ -17,11 +22,12 @@ const joi = require('@hapi/joi');
  * Return { success: true } on success, and { success: false, code: <HTTP status code>, errmsg <String> } otherwise
  */
 regRouter.get('/auth', async (req, res) => {
-    const inputEmail = req.body.email;
-    const inputPassword = req.body.password;
+    // const inputEmail = req.body.email;
+    // const inputPassword = req.body.password;
 
-
-    var data = await schema.findOne({ "user.personal.email": inputEmail }); //retrieve user from database
+    const validation = joi.validate(req.body. valiSchema);
+    
+    var data = await schema.findOne({ "personal.email": inputEmail }); //retrieve user from database
 
     // console.log(data);
     if (data == null) {
