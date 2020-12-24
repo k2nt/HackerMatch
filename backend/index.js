@@ -2,21 +2,23 @@ const express = require('express');
 const app = express();
 const db = require('mongoose');
 const bodyParser = require('body-parser');
-const signUpRoute = require('./route/register');
-const loginRoute = require('./route/login');
+const passport = require('passport');
+const apiRoute = require('./route/route');
 const searchRoute = require('./route/search');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 
 
+require('./auth/auth');
 require('dotenv/config');
 //Middleware
 app.use(bodyParser.json()); // to parse response in json
 
 
+app.use('/api', apiRoute); // navigate to sign up page
+// app.use('/login', loginRoute); // navigate to login page
+app.use('/search',passport.authenticate('jwt', { session: false }) ,searchRoute);
+// app.use('/user', passport.authenticate('jwt', { session: false }), secureRoute);
 
-app.use('/signup', signUpRoute); // navigate to sign up page
-app.use('/login', loginRoute); // navigate to login page
-app.use('/search', searchRoute);
 
 app.get('/', (req,res) => {
     res.send('We are on home');

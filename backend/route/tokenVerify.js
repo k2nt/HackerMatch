@@ -12,7 +12,7 @@ const auth = (req, res ,next) => {
         next(); // continue to next action
     }
     catch (err) {
-        res.status(400).send('Invalid Token');
+        res.status(403).send('Invalid Token');
     }
 }
 

@@ -1,9 +1,9 @@
 const express = require('express');
 const queryRoute = express();
 const schema = require('../model/schema');
-const verify = require('./tokenVerify');
+//const verify = require('./tokenVerify');
 
-queryRoute.get('/get', verify, async (req,res)=> {
+queryRoute.get('/get', async (req,res)=> {
     
     let user = await schema.findOne({ "personal.email": req.body.email }); //retrieve user from database
 
