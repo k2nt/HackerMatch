@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const apiRoute = require('./route/route');
 const searchRoute = require('./route/search');
+const cors = require('cors')
 // const cookieParser = require('cookie-parser');
 
 
@@ -12,7 +13,7 @@ require('./auth/auth');
 require('dotenv/config');
 //Middleware
 app.use(bodyParser.json()); // to parse response in json
-
+app.use(cors());
 
 app.use('/api', apiRoute); // navigate to sign up page
 // app.use('/login', loginRoute); // navigate to login page

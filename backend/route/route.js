@@ -21,7 +21,7 @@ router.post('/login', async (req, res) => {
         const validPass = await bcrypt.compare(req.body.password, user.password);
         if (validPass) {
             const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET ); //generate token for front end 
-            res.header('auth-token', token).json({ success: true , message: "Login!", token : token});
+            res.header('auth-token', token).status(200).json({ success: true , message: "Login!", token : token}); //format return message
         } else {
             res.json({ success: false, error: 400, errmsg: "input password does not match database"});
         }
