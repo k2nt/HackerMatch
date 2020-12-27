@@ -1,26 +1,26 @@
 const express = require('express');
 const queryRoute = express();
 const schema = require('../model/schema');
+//const verify = require('./tokenVerify');
 
-
-queryRoute.get('/get', async (req,res)=> {
-    const queryEmail = req.body.email;
-    
-    var data = await schema.findOne({ "user.personal.email": queryEmail }); //retrieve user from database
+queryRoute.get('/get', async (req, res)=> {
+    // console.log(req.query)
+    let user = await schema.find();//{ "personal.email": req.query.email }); //retrieve user from database
 
     // console.log(data);
-    if (data == null) {
+    if (!user) {
         res.json({ success: false, error: 404, errmsg: "email not in database" });
     } else {
-        res.json(data);   
+        res.json(user);   
     }
 });
 
 
 
-queryRoute.get('/query', async (req,res) =>{
+// queryRoute.get('/query', async (req,res) =>{
     
 
 
 
-});
+// });
+module.exports = queryRoute;
