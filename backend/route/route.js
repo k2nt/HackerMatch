@@ -5,12 +5,12 @@ const {loginValid , regisValid} = require('../auth/validation');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-router.post('/login', async (req, res) => {
+router.post('/login/auth', async (req, res) => {
     
     //Validate the payload
     const {error} = loginValid(req.body);
     if (error) return res.status(400).send(error.details[0].message);
-    
+    console.log("There is an attempt to log in");
     // check if email exist
     let user = await schema.findOne({ "personal.email": req.body.email }); //retrieve user from database
 
