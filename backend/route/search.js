@@ -16,12 +16,17 @@ queryRoute.get('/get/all', async (req, res)=> {  //get all avaible user
     }
 });
 
-queryRoute.get('/get/tag', async (req, res)=> {  //get user by tag
-    // console.log(req.query)
-    //{ $or:[ {'sport_type':'Cricket'}, {'sport_type':'Football'} ]
-    const users = await schema.findOne()//.({"tags": {$in: ["WebApp"]}});//{ "personal.email": req.query.email }); //retrieve user from database
-    console.log(req.body);
-    console.log(typeof users.tags.WebApp);
+queryRoute.get('/get/tag', async (req, res)=> {  //filter user by tag - model { key : true} 
+    
+    let result = []; // form array from tags value
+    
+
+    for(var i in req.body.tags) { // form array of key value pair for query
+        result.push({["tags." + i] : req.body.tags[i]});
+    }
+    
+    
+    const users = await schema.find({'$or': result}); // retrieve user that match the tag
     if (!users) {
         res.json({ success: false, error: 404, errmsg: "No user exists" });
     } else {
