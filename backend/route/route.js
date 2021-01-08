@@ -34,7 +34,7 @@ router.post('/signup', async(req,res) => {
     if (error) return res.status(400).send(error.details[0].message);
     
     //check email exist
-    const doesUserExist = await User.exists({"personal.email": req.body.personal.email});
+    const doesUserExist = await schema.exists({"personal.email": req.body.personal.email});
     if (doesUserExist){
         return res.json({ success: false, error: 400, errmsg: "User already registered."});
     }
@@ -44,7 +44,7 @@ router.post('/signup', async(req,res) => {
     const hashedPw = await bcrypt.hash(req.body.password, salt);
 
     //Create a new user
-    const usr = new User({   //create new user object from payload
+    const usr = new schema({   //create new user object from payload
         personal : req.body.personal,
         password : hashedPw,
         tags : req.body.tags,
@@ -59,7 +59,7 @@ router.post('/signup', async(req,res) => {
     catch(err){
         res.json({ success: false, code: 500, errmsg: err.body }); //if error occur 
     }
-     
+ 
 });
 
 

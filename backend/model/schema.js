@@ -59,6 +59,11 @@ const userSchema = mongoose.Schema({
     },
     pitch: String,
 });
+
+
+
+
+
            
    
       

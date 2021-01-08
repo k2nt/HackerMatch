@@ -17,16 +17,17 @@ const regisValid = (data) => {
             password : Joi.string().min(8).required(),// at least 8 by standard
             
             tags : Joi.object().keys({
-                WebApp : Joi.boolean().default(false),
-                STEM: Joi.boolean().default(false),
-                Security: Joi.boolean().default(false),
-                FinTech: Joi.boolean().default(false),
-                AIML: Joi.boolean().default(false),
-                Funniest:Joi.boolean().default(false),
-                ARVR: Joi.boolean().default(false),
-                Embedded : Joi.boolean().default(false),
-                Mobile: Joi.boolean().default(false)
-            }),
+                WebApp : Joi.boolean(),
+                STEM: Joi.boolean(),
+                Security: Joi.boolean(),
+                FinTech: Joi.boolean(),
+                AIML: Joi.boolean(),
+                Funniest:Joi.boolean(),
+                ARVR: Joi.boolean(),
+                Embedded : Joi.boolean(),
+                Mobile: Joi.boolean()
+            }).min(1).required(), // At least one of these keys must be in the object to be valid.
+
 
             skills : Joi.array().items(Joi.string()).max(20), 
             pitch: Joi.string().allow(''),
