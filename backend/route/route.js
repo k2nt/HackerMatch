@@ -32,7 +32,7 @@ router.post('/login/auth', async (req, res) => {
 router.post('/signup', async(req,res) => {
     const {error}  = regisValid(req.body); //response return from validation
     if (error) return res.status(400).send(error.details[0].message);
-    
+    console.log(req.body.skills);
     //check email exist
     const doesUserExist = await schema.exists({"personal.email": req.body.personal.email});
     if (doesUserExist){
@@ -51,6 +51,7 @@ router.post('/signup', async(req,res) => {
         skills : req.body.skills,
         pitch : req.body.pitch
     });
+    console.log(usr);
 
     try {
         const userSaved = await usr.save(); //update to db

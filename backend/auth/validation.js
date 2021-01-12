@@ -28,8 +28,7 @@ const regisValid = (data) => {
                 Mobile: Joi.boolean()
             }).min(1).required(), // At least one of these keys must be in the object to be valid.
 
-
-            skills : Joi.array().items(Joi.string()).max(20), 
+            skills : Joi.array().items(Joi.string()).max(20).required(), 
             pitch: Joi.string().allow(''),
         });
 

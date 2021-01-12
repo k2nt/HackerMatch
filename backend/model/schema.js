@@ -53,7 +53,7 @@ const userSchema = mongoose.Schema({
                 this.Funniest || this.ARVR || this.Embedded || this.Mobile;
             },   
         },
-    skill : {
+    skills : {
         type: [String],
         max: 20,
     },
